@@ -208,7 +208,7 @@
   	<div class="dashboard">
       <h3>Dashboard</h3>
       <p>Hello <b><?php echo $User->email; ?></b>, you registered at <?php echo $User->reg_time; ?></p>
-      <p><a href="/php_login/logout.php">Logout</a></p>
+      <a href="/php_login/logout.php">Logout</a>
   	</div>
 
     <div class="upload">
@@ -301,7 +301,9 @@
 
     <footer>
       <p>Web photo gallery.</p>
-      <p>@Matevz Sesel</p>
+      <p>
+        <?php echo $User->email; ?>
+      </p>
     </footer>
 
   	<?php require_once "inc/footer.php"; ?> 
