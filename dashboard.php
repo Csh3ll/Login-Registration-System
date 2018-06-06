@@ -29,7 +29,7 @@
     <title>Photo Gallery</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/php_login/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/php_login/assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="/php_login/assets/js/javascript.js"></script>
