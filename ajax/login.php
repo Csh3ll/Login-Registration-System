@@ -31,18 +31,16 @@
 				$_SESSION['user_id'] = $user_id;
 			} else {
 				// Invalid user email/password combo
-				$return['error'] = "Invalid user email/password combo";
+				$return['error'] = "Invalid user email or password.";
 			}
 
-			$return['error'] = "You already have an account";
+			//$return['error'] = "You already have an account";
 			//$return['is_logged_in'] = false;
 		} else {
 			//Need to create a new account
-			$return['error'] = "You do not have an account. <a href='/register.php'>Create one now?</a>";
+			$return['error'] = "You do not have an account. <a href='/php_login/register.php'>Create one now?</a>";
 
 		}
-
-
 
 		echo json_encode($return, JSON_PRETTY_PRINT); exit;
 	} else {

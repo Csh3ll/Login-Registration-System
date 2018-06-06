@@ -1,6 +1,8 @@
 <?php 
     define('__CONFIG__', true);
-    require_once "inc/config.php";
+	require_once "inc/config.php";
+	
+	ForceDashboard();
 ?>
 
 
