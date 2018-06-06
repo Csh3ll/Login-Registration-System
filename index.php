@@ -22,12 +22,16 @@
   <body>
 
   	<div class="uk-section uk-container">
-        <?php echo "Hello World. Today is: ";
+
+        <h1>Welcome to the <b>Photo Gallery</b> page.</h1>
+        <h4>You need to login or create a new account.</h4>
+
+        <?php echo "Today is: ";
                 echo date("d. m. Y");
         ?>
 
         <p>
-            <a href="/php_login/login.php">Login</a>
+            <a href="/php_login/login.php">Login</a> 
             <a href="/php_login/register.php">Register</a>
         </p>
 

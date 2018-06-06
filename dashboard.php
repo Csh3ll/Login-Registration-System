@@ -26,24 +26,119 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="follow">
-
-    <title>Page Title</title>
-
-    <base href="/" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.24/css/uikit.min.css" />
+    <title>Photo Gallery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/php_login/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="/php_login/assets/js/javascript.js"></script>
   </head>
 
-  <body>
+  <body onload="onStart()">
 
-  	<div class="uk-section uk-container">
-      <h2>Dashboard</h2>
+    <header>
+      <h1>PHOTO GALLERY</h1>
+    </header>
+
+  	<div class="dashboard">
+      <h3>Dashboard</h3>
       <p>Hello <b><?php echo $User->email; ?></b>, you registered at <?php echo $User->reg_time; ?></p>
       <p><a href="/php_login/logout.php">Logout</a></p>
   	</div>
+
+    <div class="upload">
+      <h6>Upload your own photo: </h6>
+      <input type=file name=filename id=file>
+      <input type="text" id="captionInput" placeholder="Add caption">
+      <button type=button onclick='test()'>Upload</button>
+    </div>
+
+    <article>
+      <!-- Photo Grid -->
+      <div class="row">
+        <div class="column">
+
+          <div class="pix-container">
+            <div>
+              <a href="andres.jpg"> <img alt="image" src="/php_login/images/andres.jpg" style="width:100%"></a>
+            </div>
+            <div class="likeBtn">
+              <button type="button" class="likeButton">
+                <svg class="heart" version="1.1" viewBox="0 0 32 32" width="13" height="13" aria-hidden="false">
+                  <path d="M17.4 29c-.8.8-2 .8-2.8 0l-12.3-12.8c-3.1-3.1-3.1-8.2 0-11.4 3.1-3.1 8.2-3.1 11.3 0l2.4 2.8 2.3-2.8c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.4l-12.2 12.8z">
+                  </path>
+                </svg>
+              </button>
+              <button type="button" class="deleteButton">
+              Delete
+              </button>
+            </div>
+            <div contenteditable="true">
+              <p class="caption">Turtle in the blue sea</p>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="column">
+          <div class="pix-container">
+            <div>
+              <a href="joshuag.jpg"> <img alt="image" src="/php_login/images/joshuag.jpg" style="width:100%"></a>
+            </div>
+            <div class="likeBtn">
+              <button type="button" class="likeButton">
+                <svg class="heart" version="1.1" viewBox="0 0 32 32" width="13" height="13" aria-hidden="false">
+                  <path d="M17.4 29c-.8.8-2 .8-2.8 0l-12.3-12.8c-3.1-3.1-3.1-8.2 0-11.4 3.1-3.1 8.2-3.1 11.3 0l2.4 2.8 2.3-2.8c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.4l-12.2 12.8z">
+                  </path>
+                </svg>
+              </button>
+              <button type="button" class="deleteButton">
+              Delete
+              </button>
+            </div>
+            <div contenteditable="true">
+              <p class="caption">Cloudy landscape</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="column">
+          <div class="pix-container">
+            <div>
+              <a href="ricardo.jpg"> <img alt="image" src="/php_login/images/ricardo.jpg" style="width:100%"></a>
+            </div>
+            <div class="likeBtn">
+              <button type="button" class="likeButton">
+                <svg class="heart" version="1.1" viewBox="0 0 32 32" width="13" height="13" aria-hidden="false">
+                  <path d="M17.4 29c-.8.8-2 .8-2.8 0l-12.3-12.8c-3.1-3.1-3.1-8.2 0-11.4 3.1-3.1 8.2-3.1 11.3 0l2.4 2.8 2.3-2.8c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.4l-12.2 12.8z">
+                  </path>
+                </svg>
+              </button>
+              <button type="button" class="deleteButton">
+              Delete
+              </button>
+            </div>
+            <div contenteditable="true">
+              <p class="caption">Double stairs</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="tekst">
+        <h2>Overview</h2>
+        <p>Responsive web design for web photo gallery.</p>
+        <img src="/php_login/images/joshua.jpg" alt="sun"
+          style="max-width:100%;height:auto;">
+      </div>
+    </article>
+
+    <footer>
+      <p>Web photo gallery.</p>
+      <p>@Matevz Sesel</p>
+    </footer>
 
   	<?php require_once "inc/footer.php"; ?> 
   </body>
