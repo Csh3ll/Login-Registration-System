@@ -13,6 +13,8 @@
   $getUserInfo->bindParam(':user_id', $user_id, PDO::PARAM_INT);
   $getUserInfo->execute();
 
+  
+
   if($getUserInfo->rowCount() == 1) {
     //user found
     $User = $getUserInfo->fetch(PDO::FETCH_OBJ);
@@ -20,6 +22,12 @@
     //user is not signed in.
     header("Location: /php_login/logout.php"); exit;
   }
+
+  $str = $User->email;
+  $s = explode("@", $str);
+  array_pop($s);
+  $s = implode("@", $s);
+  $s = ucfirst($s);
 
 ?>
 
@@ -46,10 +54,11 @@
       }
         
       header {
-        background-color: #f0f0f0;
-        color: #616060;
+        
+        background:url("images/steve.jpg");
+        color: lightgrey;
         text-align: center;
-        padding-top: 90px; 
+        padding-top: 55px; 
         margin: -10px;
         height: 250px;
         margin-bottom: 25px;
@@ -203,13 +212,15 @@
 
     <header>
       <h1>PHOTO GALLERY</h1>
+      <p> <?php echo $User->email; ?> </p>
+      <a style="color:white" href="/php_login/logout.php">Logout</a>
     </header>
 
   	<div class="dashboard">
       <h3>Dashboard</h3>
-      <p>Hello <b><?php echo $User->email; ?></b>, you registered at <?php echo $User->reg_time; ?></p>
-      <a href="/php_login/logout.php">Logout</a>
+      <p>Hello <?php echo $s ?>, you registered at <?php echo $User->reg_time; ?>.</p>
   	</div>
+    <br>
 
     <div class="upload">
       <h6>Upload your own photo: </h6>
