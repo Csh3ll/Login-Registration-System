@@ -221,17 +221,59 @@
       <h3>Dashboard</h3>
       <p>Hello <?php echo $s ?>, you registered at <?php echo $User->reg_time; ?>.</p>
   	</div>
-    <br>
 
+    <!--
     <div class="upload">
       <h6>Upload your own photo: </h6>
       <input type=file name=filename id=file>
       <input type="text" id="captionInput" placeholder="Add caption">
       <button type=button onclick='test()'>Upload</button>
     </div>
+    -->
+
+
+
+    <div class="upload">
+    
+      <form action="#" method="post" enctype="multipart/form-data">
+        <h4 style="margin-left:30%">Upload your own photo: </h4>
+        <input type="file" name="img">
+        <input type="text" id="captionInput" placeholder="Add caption">
+        <input type="submit" name="Upload">
+      </form>
+      
+    </div>
+
+    <?php  
+
+      $conn = mysqli_connect("localhost", "root", "", "photos");
+
+      if(isset($_POST['submit'])) {
+        $filename = addslashes($_FILES["img"]["name"]);
+        $tmpname = addslashes(file_get_contents($_FILES["img"]["tmp_name"]));
+        $filetype = addslashes($_FILES["img"]["type"]);
+        $array = array('jpg', 'jpeg');
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if (!empty($filename)) {
+          if (in_array($ext, $array)) {
+            mysqli_query($conn, "INSERT into image(name, image) VALUES('$filename','$tmpname')");
+          } else {
+            echo "Unsupported format.";
+          }
+        } else {
+          echo "Please select the image.";
+        }
+      }
+      //display image
+      $res = mysqli_query($conn, "SELECT * from image");
+      while($row = mysqli_fetch_array($res)) {
+      echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" width="428" height="270" style="margin:5px"/>';
+      }
+
+    ?>
 
     <article>
-      <!-- Photo Grid -->
+      <!-- Photo Grid 
       <div class="row">
         <div class="column">
 
@@ -303,6 +345,7 @@
 
         </div>
       </div>
+      -->
       <div class="tekst">
         <h2>Overview</h2>
         <p>Responsive web design for web photo gallery.</p>
