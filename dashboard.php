@@ -248,7 +248,7 @@
 
       $conn = mysqli_connect("localhost", "root", "", "photos");
 
-      if(isset($_POST['submit'])) {
+      if(isset($_POST['Upload'])) {
         $filename = addslashes($_FILES["img"]["name"]);
         $tmpname = addslashes(file_get_contents($_FILES["img"]["tmp_name"]));
         $filetype = addslashes($_FILES["img"]["type"]);
