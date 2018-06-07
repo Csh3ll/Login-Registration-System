@@ -217,7 +217,7 @@
       <a style="color:white" href="/php_login/logout.php">Logout</a>
     </header>
 
-  	<div class="dashboard">
+  	<div class="dashboard" style="margin-left:5px">
       <h3>Dashboard</h3>
       <p>Hello <?php echo $s ?>, you registered at <?php echo $User->reg_time; ?>.</p>
   	</div>
